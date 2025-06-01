@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(rgba(235,172,162,0.8),rgba(235,172,162,0.8)), url('../admin/Uploadimage/bookBacground.jpg');
+    background-image: linear-gradient(rgba(235, 172, 162, 0.8), rgba(235, 172, 162, 0.8)), url('../admin/Uploadimage/bookBacground.jpg');
 }
 
 .content {
@@ -85,12 +85,13 @@ button:hover {
 }
 
 .container {
-    max-width: 1200px; /* Adjust as needed */
+    max-width: 1200px;
+    /* Adjust as needed */
     margin: 0 auto;
     padding: 20px;
 }
 
-.bookimg{
+.bookimg {
     width: 90px;
 }
 
@@ -169,9 +170,12 @@ footer {
 }
 
 .book img {
-    width: 150px; /* Set width to 100% to maintain aspect ratio */
-    height: 250px; /* Set a fixed height for uniformity */
-    object-fit: cover; /* Ensure the image covers the entire space */
+    width: 150px;
+    /* Set width to 100% to maintain aspect ratio */
+    height: 250px;
+    /* Set a fixed height for uniformity */
+    object-fit: cover;
+    /* Ensure the image covers the entire space */
     border-radius: 5px;
 }
 
@@ -227,4 +231,78 @@ footer {
     background-color: #0056b3;
     border-color: #004085;
     box-shadow: 0 6px 12px rgba(0, 86, 179, 0.4);
+}
+
+/* DataTables Styling */
+.dataTables_wrapper {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1200px;
+}
+
+#booksTable {
+    width: 100% !important;
+    margin: 20px 0;
+}
+
+#booksTable th {
+    background-color: #4A919E;
+    color: white;
+    padding: 12px;
+}
+
+#booksTable td {
+    padding: 12px;
+    vertical-align: middle;
+}
+
+#booksTable img.bookimg {
+    width: 80px;
+    height: auto;
+    border-radius: 5px;
+}
+
+.dt-buttons {
+    margin-bottom: 20px;
+}
+
+.dt-button {
+    background-color: #4A919E !important;
+    color: white !important;
+    border: none !important;
+    padding: 8px 16px !important;
+    border-radius: 5px !important;
+    margin-right: 10px !important;
+    cursor: pointer !important;
+}
+
+.dt-button:hover {
+    background-color: #366B75 !important;
+}
+
+.dataTables_filter input {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-left: 10px;
+}
+
+.dataTables_length select {
+    padding: 6px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+/* Preserve existing button styles within the table */
+#booksTable .btn-success {
+    display: block;
+    margin-top: 10px;
+}
+
+#booksTable .rating {
+    margin-bottom: 10px;
 }
