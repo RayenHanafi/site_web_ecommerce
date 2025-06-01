@@ -1,3 +1,4 @@
+# Enable property info
 framework:
     property_info:
-        with_constructor_extractor: true
+        enabled: true

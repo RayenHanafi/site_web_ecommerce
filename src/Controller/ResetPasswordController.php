@@ -20,9 +20,22 @@ use SymfonyCasts\Bundle\ResetPassword\Controller\ResetPasswordControllerTrait;
 use SymfonyCasts\Bundle\ResetPassword\Exception\ResetPasswordExceptionInterface;
 use SymfonyCasts\Bundle\ResetPassword\ResetPasswordHelperInterface;
 
-#[Route('/reset-password', name: 'reset_password')]
+#[Route('/reset-password')]
 class ResetPasswordController extends AbstractController
 {
+    use ResetPasswordControllerTrait;
+
+    private $resetPasswordHelper;
+    private $entityManager;
+
+    public function __construct(
+        ResetPasswordHelperInterface $resetPasswordHelper,
+        EntityManagerInterface $entityManager
+    ) {
+        $this->resetPasswordHelper = $resetPasswordHelper;
+        $this->entityManager = $entityManager;
+    }
+
     #[Route('', name: 'app_forgot_password_request')]
     public function request(Request $request, MailerInterface $mailer, TranslatorInterface $translator): Response
     {
@@ -96,7 +109,7 @@ class ResetPasswordController extends AbstractController
 
             $this->cleanSessionAfterReset();
 
-            return $this->redirectToRoute('login');
+            return $this->redirectToRoute('app_login');
         }
 
         return $this->render('reset_password/reset.html.twig', [

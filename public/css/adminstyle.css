@@ -2,7 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(rgba(235,172,162,0.8),rgba(235,172,162,0.8)), url(../contact/images/bookBacground.jpg);
+    background-image: linear-gradient(rgba(235, 172, 162, 0.8), rgba(235, 172, 162, 0.8)), url(../contact/images/bookBacground.jpg);
 }
 
 .main-header {
@@ -84,6 +84,7 @@ main {
 .admin-content table tr:hover {
     background-color: #f5f5f5;
 }
+
 /* adminstyle.css */
 
 /* Styles for the "Add New Book" button */
@@ -91,8 +92,10 @@ main {
     margin-top: 30px;
     display: inline-block;
     padding: 10px 20px;
-    background-color: #4A919E; /* Button background color */
-    color: #fff; /* Text color */
+    background-color: #4A919E;
+    /* Button background color */
+    color: #fff;
+    /* Text color */
     font-size: 16px;
     text-decoration: none;
     border: none;
@@ -102,7 +105,8 @@ main {
 }
 
 .btn-add-book:hover {
-    background-color: #366B75; /* Darker background color on hover */
+    background-color: #366B75;
+    /* Darker background color on hover */
 }
 
 
@@ -152,3 +156,48 @@ main {
     background-color: #366B75;
 }
 
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+    text-decoration: none;
+    color: white;
+}
+
+.table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+}
+
+.table img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

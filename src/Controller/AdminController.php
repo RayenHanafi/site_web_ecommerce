@@ -75,27 +75,24 @@ class AdminController extends AbstractController
         ]);
     }
 
-    #[Route('/admin/orders/delete', name: 'admin_order_delete')]
-    public function deleteOrder(Request $request, CommandeRepository $commandeRepository, EntityManagerInterface $entityManager): Response
+    #[Route('/admin/orders/delete/{id}', name: 'admin_order_delete', methods: ['POST'])]
+    public function deleteOrder(Request $request, CommandeRepository $commandeRepository, EntityManagerInterface $entityManager, int $id): Response
     {
-        $bookid = $request->query->get('bookid');
-        $userid = $request->query->get('userid');
-
-        if ($bookid && $userid) {
-            $order = $commandeRepository->findOneBy([
-                'bookid' => $bookid,
-                'userid' => $userid
-            ]);
-
-            if ($order) {
-                $entityManager->remove($order);
-                $entityManager->flush();
-                return $this->redirectToRoute('admin_manage_orders');
-            } else {
-                $this->addFlash('error', 'Error deleting order.');
-            }
+        $order = $commandeRepository->find($id);
+        
+        if (!$order) {
+            $this->addFlash('error', 'Order not found.');
+            return $this->redirectToRoute('admin_manage_orders');
         }
 
+        if ($this->isCsrfTokenValid('delete' . $order->getId(), $request->request->get('_token'))) {
+            $entityManager->remove($order);
+            $entityManager->flush();
+            $this->addFlash('success', 'Order deleted successfully.');
+        } else {
+            $this->addFlash('error', 'Invalid token.');
+        }
+        
         return $this->redirectToRoute('admin_manage_orders');
     }
 }

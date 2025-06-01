@@ -8,8 +8,10 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\Entity(repositoryClass: CommandeRepository::class)]
 class Commande
 {
-
-
+    #[ORM\Id]
+    #[ORM\GeneratedValue]
+    #[ORM\Column]
+    private ?int $id = null;
 
     #[ORM\Column(length: 255)]
     private ?string $ville = null;
@@ -17,17 +19,18 @@ class Commande
     #[ORM\Column]
     private ?int $quantity = null;
 
-    #[ORM\Id]
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?Books $bookid = null;
 
-    #[ORM\Id]
     #[ORM\ManyToOne]
     #[ORM\JoinColumn(nullable: false)]
     private ?User $userid = null;
 
-
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
 
     public function getVille(): ?string
     {

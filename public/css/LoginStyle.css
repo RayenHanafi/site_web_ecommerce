@@ -1,7 +1,7 @@
 /* LoginStyle.css */
 
 body {
-    background-image: linear-gradient(rgba(235,172,162,0.8), rgba(235,172,162,0.8)), url('/admin/Uploadimage/bookBacground.jpg');
+    background-image: linear-gradient(rgba(235, 172, 162, 0.8), rgba(235, 172, 162, 0.8)), url('/admin/Uploadimage/bookBacground.jpg');
     height: 100%;
 }
 
@@ -31,11 +31,13 @@ form input[type=email],
 form input[type=password],
 form input[type=tel] {
     display: block;
-    margin-bottom: 15px; /* Adjusted for more space */
+    margin-bottom: 15px;
+    /* Adjusted for more space */
     border: 1px solid #E5E9F5;
     background-color: #F6F7FA;
     padding: 10px;
-    margin-top: 15px; /* Adjusted for more space */
+    margin-top: 15px;
+    /* Adjusted for more space */
     border-radius: 10px;
     width: 100%;
 }
@@ -49,8 +51,10 @@ input[type=submit],
 .btn-primary {
     background-color: #CE6A6B;
     color: white;
-    padding: 15px; /* Adjusted for more space */
-    margin: 15px 0; /* Adjusted for more space */
+    padding: 15px;
+    /* Adjusted for more space */
+    margin: 15px 0;
+    /* Adjusted for more space */
     border: 10px;
     border-radius: 10px;
     width: 100%;
@@ -73,7 +77,8 @@ input[type=submit]:hover,
 .signup-heading {
     text-align: center;
     font-size: 40px;
-    margin-bottom: 20px; /* Adjusted for more space */
+    margin-bottom: 20px;
+    /* Adjusted for more space */
     color: #CE6A6B;
 }
 
@@ -81,7 +86,8 @@ input[type=submit]:hover,
     background: #EBACA2;
     padding: 10px;
     width: 90%;
-    margin: 10px auto; /* Adjusted for more space */
+    margin: 10px auto;
+    /* Adjusted for more space */
     color: red;
     border-radius: 5px;
 }
@@ -90,7 +96,64 @@ input[type=submit]:hover,
     background: #B7FFB7;
     padding: 10px;
     width: 90%;
-    margin: 10px auto; /* Adjusted for more space */
+    margin: 10px auto;
+    /* Adjusted for more space */
     color: green;
     border-radius: 5px;
+}
+
+.message-box {
+    background-color: #F6F7FA;
+    border: 1px solid #E5E9F5;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    text-align: center;
+    line-height: 1.6;
+}
+
+.message-box p {
+    margin: 15px 0;
+    color: #666;
+}
+
+.reset-link {
+    color: #CE6A6B;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.reset-link:hover {
+    color: #b15657;
+    text-decoration: underline;
+}
+
+.info-text {
+    text-align: center;
+    margin: 15px 0;
+    color: #666;
+    font-size: 0.9em;
+}
+
+.info-text small {
+    display: block;
+    line-height: 1.5;
+}
+
+.btn-primary {
+    background-color: #CE6A6B;
+    color: white;
+    padding: 15px;
+    margin: 15px 0;
+    border: none;
+    border-radius: 10px;
+    width: 100%;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #b15657;
 }
