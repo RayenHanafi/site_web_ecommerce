@@ -8,7 +8,6 @@ A modern online bookstore built with Symfony, featuring user authentication, sho
 - 🛒 Shopping cart functionality
 - 👤 User authentication (Login/Register)
   - Traditional login
-  - Google authentication
   - Password reset functionality
 - 📧 Contact form with email notifications
 - 🛡️ Admin dashboard
@@ -16,7 +15,6 @@ A modern online bookstore built with Symfony, featuring user authentication, sho
   - Order management
 - 📱 Responsive design
 - 🖨️ PDF generation for orders
-- 💳 Secure payment processing
 
 ## Requirements
 
