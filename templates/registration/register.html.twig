@@ -12,6 +12,18 @@
             <div id="sign-up-container">
                 <h1 class="signup-heading">Register</h1>
 
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
+                {% for message in app.flashes('error') %}
+                    <div class="alert alert-danger">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+
                 {{ form_start(registrationForm) }}
                 {{ form_errors(registrationForm) }}
                 {{ form_row(registrationForm.username) }}
@@ -24,7 +36,7 @@
                 {{ form_row(registrationForm.password.second, { label: 'Repeat Password' }) }}
                 {{ form_row(registrationForm.agreeTerms) }}
 
-                <input type="submit" value="Register">
+                <button type="submit" class="btn">Register</button>
                 {{ form_end(registrationForm) }}
             </div>
         </div>

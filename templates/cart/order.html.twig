@@ -3,15 +3,48 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" href="{{ asset('css/orderStyle.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/cartStyle.css') }}">
 {% endblock %}
 
 {% block title %}Place Order{% endblock %}
 
 {% block body %}
-    <h1>Place Order</h1>
-    {{ form_start(orderForm) }}
-    {{ form_row(orderForm.ville) }}
-    {{ form_row(orderForm.save) }}
-    {{ form_end(orderForm) }}
+    <header class='main-header'>
+        <div class='logo'>
+            <img src='{{ asset('images/logo.png') }}' alt='Company Logo'>
+        </div>
+        <nav class='main-nav'>
+            <ul>
+                <li><a href='/contact'>Contact</a></li>
+                <li><a href='/aboutus'>About Us</a></li>
+                <li><a href='/'>Books</a></li>
+            </ul>
+        </nav>
+        <div class='user-actions'>
+            <a href='/cart'>Cart</a>
+            <a href='/logout'>Logout</a>
+        </div>
+    </header>
+
+    <main class="container">
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <div class="order-form">
+            <h2>Complete Your Order</h2>
+            {{ form_start(orderForm) }}
+                {{ form_widget(orderForm) }}
+                <button type="submit" class="btn btn-success">Place Order</button>
+            {{ form_end(orderForm) }}
+        </div>
+    </main>
 {% endblock %}

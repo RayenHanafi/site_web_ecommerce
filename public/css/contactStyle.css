@@ -6,12 +6,13 @@
 }
 
 body {
-    background-image: linear-gradient(rgba(235,172,162,0.8), rgba(235,172,162,0.8)), url('/admin/Uploadimage/bookBacground.jpg');
+    background-image: linear-gradient(rgba(235, 172, 162, 0.8), rgba(235, 172, 162, 0.8)), url('/admin/Uploadimage/bookBacground.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
-    flex-direction: column; /* Ensure header appears at the top */
+    flex-direction: column;
+    /* Ensure header appears at the top */
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -77,6 +78,7 @@ form button {
     margin: 20px auto 0;
     border-radius: 30px;
 }
+
 header {
     background-color: #CE6A6B;
     color: #fff;
@@ -86,7 +88,8 @@ header {
     width: 100%;
     height: auto;
     margin-bottom: 20px;
-    margin-top: 0; /* Set margin-top to 0 */
+    margin-top: 0;
+    /* Set margin-top to 0 */
 }
 
 .logo img {
@@ -106,7 +109,8 @@ nav ul li {
 }
 
 nav ul li:last-child {
-    margin-right: 0; /* Remove margin for the last item */
+    margin-right: 0;
+    /* Remove margin for the last item */
 }
 
 nav ul li a {
@@ -149,4 +153,23 @@ nav ul li a {
     }
 
 
+}
+
+.alert {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.alert-success {
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    color: #3c763d;
+}
+
+.alert-danger {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+    color: #a94442;
 }

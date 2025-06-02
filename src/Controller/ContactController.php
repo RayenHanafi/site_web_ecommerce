@@ -17,22 +17,15 @@ class ContactController extends AbstractController
     #[Route('/contact', name: 'app_contact')]
     public function index(Request $request, MailerInterface $mailer): Response
     {
-
         $form = $this->createForm(ContactType::class);
 
         $form->handleRequest($request);
 
-
         if ($form->isSubmitted() && $form->isValid()) {
-
-
-
-
             $data = $form->getData();
 
             $address = $data['email'];
             $content = $data['content'];
-
 
             $email = (new Email())
                 ->from($address)
@@ -42,9 +35,6 @@ class ContactController extends AbstractController
 
             $mailer->send($email);
             $this->addFlash('success', 'Your message has been sent successfully!');
-
-
-
         }
 
         return $this->renderForm('contact/index.html.twig', [

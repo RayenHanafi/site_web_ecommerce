@@ -24,56 +24,72 @@
             <a href='/logout'>Logout</a>
         </div>
     </header>
+
     <main class="container">
-        <section class="row">
-            <div class="col-12">
-                <h1>Cart</h1>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>Book</th>
-                        <th>Price</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for element in cartData %}
-                        <tr>
-                            <td>{{ element.book.title }}</td>
-                            <td>{{ element.book.price }}</td>
-                            <td>{{ element.quantity }}</td>
-                            <td>{{ element.quantity * element.book.price }}</td>
-                            <td>
-                                <a href="{{ path('cart_increase', {id: element.book.id}) }}" class="btn btn-success">+</a>
-                                <a href="{{ path('cart_remove', {id: element.book.id}) }}" class="btn btn-warning">-</a>
-                                <a href="{{ path('cart_delete', {id: element.book.id}) }}" class="btn btn-danger">Supprimer</a>
-                            </td>
-                        </tr>
-                    {% else %}
-                        <tr>
-                            <td colspan="5">Your cart is empty</td>
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="3">Total</td>
-                        <td>{{ total }}</td>
-                        <td>
-                            <a href="{{ path('cart_empty') }}" class="btn btn-danger">Vider</a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5">
-                            <a href="{{ path('cart_pdf_generate') }}" class="btn btn-success">Generate PDF</a>
-                            <a href="{{ path('cart_order') }}" class="btn btn-primary {% if isCartEmpty %}disabled{% endif %}">Place Order</a>
-                        </td>
-                    </tr>
-                    </tfoot>
-                </table>
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">
+                {{ message }}
             </div>
+        {% endfor %}
+
+        {% for message in app.flashes('error') %}
+            <div class="alert alert-danger">
+                {{ message }}
+            </div>
+        {% endfor %}
+
+        <section class="row">
+            {% if isCartEmpty %}
+                <div class="empty-cart-message">
+                    <p>Your cart is empty</p>
+                    <a href="{{ path('book_index') }}" class="btn btn-primary">Continue Shopping</a>
+                </div>
+            {% else %}
+                <div class="cart-items">
+                    <h2>Your Cart</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Book</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for item in cartData %}
+                                <tr>
+                                    <td>{{ item.book.title }}</td>
+                                    <td>{{ item.book.price }} DT</td>
+                                    <td>
+                                        <a href="{{ path('cart_decrease', {'id': item.book.id}) }}" class="btn btn-sm btn-primary">-</a>
+                                        <span class="mx-2">{{ item.quantity }}</span>
+                                        <a href="{{ path('cart_add', {'id': item.book.id}) }}" class="btn btn-sm btn-primary">+</a>
+                                    </td>
+                                    <td>{{ item.book.price * item.quantity }} DT</td>
+                                    <td>
+                                        <a href="{{ path('cart_remove', {'id': item.book.id}) }}" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash"></i> Remove
+                                        </a>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td colspan="3" class="text-right"><strong>Total:</strong></td>
+                                <td><strong>{{ total }} DT</strong></td>
+                                <td></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="cart-actions">
+                        <a href="{{ path('cart_order') }}" class="btn btn-success">Proceed to Checkout</a>
+                        <a href="{{ path('book_index') }}" class="btn btn-primary">Continue Shopping</a>
+                    </div>
+                </div>
+            {% endif %}
         </section>
     </main>
 {% endblock %}
