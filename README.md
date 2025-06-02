@@ -81,14 +81,10 @@ symfony server:start
 - Role-based access control
 - Protected admin routes
 
-## Contact
-
-For any inquiries, please reach out through the contact form on the website or email directly at soniamejri59@gmail.com
-
 ## Author
 
 - Sonia Mejri
-- Rayen Hanafi 
+- Rayen Hanafi
 - Nour Nejia Slim
 - Zaineb Kchaou
 - Mariem Daoud
