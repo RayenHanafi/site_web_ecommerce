@@ -1,51 +1,48 @@
+{% extends 'base.html.twig' %}
 
-{# templates/aboutus/index.html.twig #}
-<!DOCTYPE html>
-<html>
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/aboutusStyle.css') }}">
+{% endblock %}
 
-
-
-
-
+{% block body %}
     {% if not app.user %}
-    <header class='main-header'>
-    <link rel="stylesheet" href="{{ asset('css/aboutusStyle.css') }}">
-        <div class='logo'>
-            <img src='{{ asset('images/logo.png') }}' alt='Company Logo'>
-        </div>
-        <nav class='main-nav'>
-            <ul>
-                <li><a href='/contact' class="link">Contact</a></li>
-                <li><a href='/aboutus' class="link">About Us</a></li>
-                <li><a href='/' class="link">Books</a></li>
-            </ul>
-        </nav>
-        <div class='user-actions'>
-            <a href='/cart'>Cart</a>
-            <a href='/login'>Login</a>
-            <a href='/register'>sign in</a>
-        </div>
-    </header>
-{% else %}
-    <header class='main-header'>
-    <link rel="stylesheet" href="{{ asset('css/aboutusStyle.css') }}">
-        <div class='logo'>
-            <img src='{{ asset('images/logo.png') }}' alt='Company Logo'>
-        </div>
-        <nav class='main-nav'>
-            <ul>
-                <li><a href='/contact' class="link">Contact</a></li>
-                <li><a href='/aboutus' class="link">About Us</a></li>
-                <li><a href='/' class="link">Books</a></li>
-            </ul>
-        </nav>
-        <div class='user-actions'>
-            <a href='/cart'>Cart</a>
-            <a href='/logout'>Logout</a>
-        </div>
-    </header>
-{% endif %}
- <section id="AboutUs">
+        <header class='main-header'>
+            <div class='logo'>
+                <img src='{{ asset('images/logo.png') }}' alt='Company Logo'>
+            </div>
+            <nav class='main-nav'>
+                <ul>
+                    <li><a href='/contact' class="link">Contact</a></li>
+                    <li><a href='/aboutus' class="link">About Us</a></li>
+                    <li><a href='/' class="link">Books</a></li>
+                </ul>
+            </nav>
+            <div class='user-actions'>
+                <a href='/cart'>Cart</a>
+                <a href='/login'>Login</a>
+                <a href='/register'>sign in</a>
+            </div>
+        </header>
+    {% else %}
+        <header class='main-header'>
+            <div class='logo'>
+                <img src='{{ asset('images/logo.png') }}' alt='Company Logo'>
+            </div>
+            <nav class='main-nav'>
+                <ul>
+                    <li><a href='/contact' class="link">Contact</a></li>
+                    <li><a href='/aboutus' class="link">About Us</a></li>
+                    <li><a href='/' class="link">Books</a></li>
+                </ul>
+            </nav>
+            <div class='user-actions'>
+                <a href='/cart'>Cart</a>
+                <a href='/logout'>Logout</a>
+            </div>
+        </header>
+    {% endif %}
+    <section id="AboutUs">
         <div class="container">
             <h1 id="titleAboutUs">About Us</h1>
             <p>Welcome to <span class="shop-name">Book Shop</span>, where our passion for literature meets your reading needs.</p>
@@ -55,8 +52,7 @@
             <p>Thank you for choosing <span class="shop-name">Book Shop</span> as your literary destination. We look forward to serving you and being a part of your reading adventures.</p>
         </div>
     </section>
-
-</html>
+{% endblock %}
 
 
 
