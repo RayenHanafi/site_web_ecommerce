@@ -85,19 +85,18 @@
                 </thead>
                 <tbody>
                     {% for book in books %}
-                        <tr>
+                        <tr data-book-id="{{ book.id }}">
                             <td><img src="{{ asset('/' ~ book.img) }}" class="bookimg" alt="{{ book.title }}"></td>
                             <td>{{ book.title }}</td>
                             <td>{{ book.author }}</td>
                             <td>{{ book.price }} DT</td>
                             <td>
-                                <div class="rating">
-                                    <span class="star" onclick="setRating(1,{{ book.id }})">&#9733;</span>
-                                    <span class="star" onclick="setRating(2,{{ book.id }})">&#9733;</span>
-                                    <span class="star" onclick="setRating(3,{{ book.id }})">&#9733;</span>
-                                    <span class="star" onclick="setRating(4,{{ book.id }})">&#9733;</span>
-                                    <span class="star" onclick="setRating(5,{{ book.id }})">&#9733;</span>
+                                <div class="rating" data-current-rating="{{ book.rating|default(0) }}">
+                                    {% for i in 1..5 %}
+                                        <span class="star {% if book.rating is defined and book.rating >= i %}rated{% endif %}" data-rating="{{ i }}" onclick="setRating({{ i }}, {{ book.id }})">&#9733;</span>
+                                    {% endfor %}
                                 </div>
+                                <div class="rating-message" id="rating-message-{{ book.id }}"></div>
                                 <a href="{{ path('cart_add', {id: book.id}) }}" class="btn btn-success btn-add-to-cart">Add to cart</a>
                             </td>
                         </tr>
